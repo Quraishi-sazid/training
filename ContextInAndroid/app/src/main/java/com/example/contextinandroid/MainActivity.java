@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 * in the whole application. If we do this then related things will be in memory which
 * will cause memory leak.
 * for example the applicationContextTextView will prevent MainActivity to be garbage collected
+* link: https://www.youtube.com/watch?v=-e6lyXIkIl0
 * 
 * */
     @Override
