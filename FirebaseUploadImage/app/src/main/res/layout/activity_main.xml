@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable name="eventHandler"
+            type="com.example.firebaseuploadimage.MainActivity.EventHandling"
+            />
+        <variable
+            name="progressData"
+            type="com.example.firebaseuploadimage.ProgressData" />
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+
+        <Button
+            android:id="@+id/btn_select_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="select Image"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:onClick="@{(view)->eventHandler.selectImageFile(view)}"
+            />
+        <EditText
+            android:id="@+id/et_image_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@+id/btn_select_image"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <ProgressBar
+            android:id="@+id/pr_progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/btn_uploadImage"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:max="100"
+            android:progress="@{progressData.percent}"
+            />
+        <Button
+            android:id="@+id/btn_uploadImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="1"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="Upload Image"
+            android:onClick="@{()->eventHandler.UploadImageFile()}"
+            />
+        <ImageView
+            android:id="@+id/iv_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/btn_select_image"
+            app:layout_constraintBottom_toTopOf="@id/btn_uploadImage"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_margin="20dp"
+            android:src="@drawable/abc"
+            android:scaleType="fitXY"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
